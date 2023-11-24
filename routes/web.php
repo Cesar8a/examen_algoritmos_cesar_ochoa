@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/algoritmos-tema-1', 'App\Http\Controllers\algorithmsController@index');
+
