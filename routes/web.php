@@ -19,3 +19,4 @@ Route::get('/', function () {
 
 Route::get('/algoritmos-tema-1', 'App\Http\Controllers\algorithmsController@index');
 
+Route::get('/number-of-words', 'App\Http\Controllers\wordsController@index');
