@@ -18,4 +18,11 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    /* @test */
+    public function test_cochoa()
+    {
+        $response = $this->get('/cochoa');
+        $response->assertStatus(200);
+    }
 }
