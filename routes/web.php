@@ -21,27 +21,11 @@ Route::get('/cochoa', function () {
 	return '<h1>Cochoa</h1>';
 });
 
-Route::get('/usuarios', function () {
-	return '<h1>Usuarios</h1>';
-});
+Route::get('/usuarios', 'App\Http\Controllers\UsersController@index');
+Route::get('/usuarios/{id}', 'App\Http\Controllers\UsersController@show')->where('id', '[0-9]+');
+Route::get('/usuarios/nuevo', 'App\Http\Controllers\UsersController@create');
 
-Route::get('/usuarios/{id}', function ($id) {
-	return "<h1>Mostrando detalle del usuario: {$id}</h1>";
-})->where('id', '[0-9]+');
-
-Route::get('/usuarios/nuevo', function () {
-	return '<h1>Crear nuevo usuario</h1>';
-});
-
-Route::get('/saludo/{name}/{nickname?}', function ($name, $nickname = null) {
-	$name = ucfirst($name);
-
-	if ($nickname) {
-		return "<h1>Bienvenido {$name}, tu apodo es {$nickname}</h1>";
-	}else{
-		return "<h1>Bienvenido {$name}<h1>";
-	}
-});
+Route::get('/saludo/{name}/{nickname?}', 'App\Http\Controllers\WelcomeUsersController');
 
 Route::get('/algoritmos-tema-1', 'App\Http\Controllers\algorithmsController@index');
 
